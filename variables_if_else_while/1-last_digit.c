@@ -1,34 +1,34 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdio.h>
 
 /**
- * main - prints the last digit of a randomly generated number.
- * Description: The program generates a random number, stores it in n
+ * main -  Prints the last digit of a randomly generated number.
  *
+ * Descrption: The program generates a random number, stores it in n,
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
-	int n, lastd;
+    int n;
+    int last_digit;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	lastd = n % 10;
+    n = 98;   
+    last_digit = n % 10;
 
-	if (lastd > 5)
-	{
-		printf("last digit of %d and is greater than 5/n", lastd);
-	}
-	else if (lastd == 0)
-	{
-		printf("last digit of %d is %d and is 0\n", n, lastd);
-	}
-	else if (lastd < 6 && lastd != 0)
-	{
-		printf("last digit of %d is %d and is less than 6 and not 0\n", n, lastd);
-	}
+    if (last_digit > 5)
+    {
+        printf("Last digit of %d is %d and is greater than 5\n", n, last_digit);
+    }
+    else if (last_digit == 0)
+    {
+        printf("Last digit of %d is %d and is 0\n", n, last_digit);
+    }
+    else
+    {
+        printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last_digit);
+    }
 
-	return (0);
+    return (0);
 }
+
