@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * more_numbers from 0 to 14 ten times
  * void:No input parameter
@@ -13,8 +13,9 @@ void more_numbers(void)
 	for (i = 0; i <= 10; i++)
 	{
 		for (j = 0; j <= 14; j++)
-
-			if (j >= 10)
+		{
+				printf("%d", j);
+		}
 			{
 				_putchar((j / 10) + '0');
 			}
