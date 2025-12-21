@@ -1,43 +1,37 @@
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 
 /**
- * create_file - creates a file and writes text into it
- * @filename: name of the file to create
- * @text_content: NULL-terminated string to write to the file
- *
+ * create_file - function that creates a file.
+ * @filename: variable pointer
+ * @text_content: content file
+ * Description: Create a function that creates a file.
  * Return: 1 on success, -1 on failure
  */
+
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t bytes_written;
-	size_t len = 0;
+	int i = 0, file;
 
 	if (filename == NULL)
 		return (-1);
 
-	/* Open file: create if needed, truncate if exists */
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (fd == -1)
-		return (-1);
+	if (text_content == NULL)
+		text_content = "";
 
-	/* If text_content is NULL, create empty file */
-	if (text_content != NULL)
+
+	while (text_content[i] != '\0')
 	{
-		while (text_content[len])
-			len++;
-
-		bytes_written = write(fd, text_content, len);
-		if (bytes_written == -1 || (size_t)bytes_written != len)
-		{
-			close(fd);
-			return (-1);
-		}
+		i++;
 	}
 
-	close(fd);
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+
+	if (file == -1)
+		return (-1);
+
+	write(file, text_content, i);
+
 	return (1);
 }
-
