@@ -1,4 +1,8 @@
 #include "main.h"
+#define _POSIX_C_SOURCE 200809L
+#include <unistd.h>
+#include <stdio.h>
+
 
 /**
  * _errexit - print error message and exit
